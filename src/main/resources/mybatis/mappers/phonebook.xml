@@ -5,7 +5,7 @@
 <mapper namespace="phonebook">
 
 	<!-- 전체리스트 가져오는 쿼리문 -->
-	<select id="selectList" resultType="com.javaex.vo.PersonVo">
+	<select id="selectList" resultType="PersonVo">
 		<![CDATA[
 			select person_id personId,
 			       name,
@@ -18,7 +18,7 @@
 	</select>
 	
 	<!-- 전화번호 저장 -->
-	<insert id="personInsert" parameterType="com.javaex.vo.PersonVo">
+	<insert id="personInsert" parameterType="PersonVo">
 		<![CDATA[
 			insert into person
 			values(SEQ_PERSON_ID.nextval, #{name}, #{hp}, #{company})
@@ -26,7 +26,7 @@
 	</insert>
 	
 	<!-- 유저1명 정보 -->
-	<select id="selectListOne" resultType="com.javaex.vo.PersonVo">
+	<select id="selectListOne" resultType="PersonVo">
 		<![CDATA[
 			select person_id personId,
 			       name,
@@ -38,7 +38,7 @@
 	</select>
 	
 	<!-- 수정 -->
-	<update id="personUpdate" parameterType="com.javaex.vo.PersonVo">
+	<update id="personUpdate" parameterType="PersonVo">
 		<![CDATA[
 			update person
 			set name = #{name},
@@ -49,7 +49,7 @@
 	</update>
 	
 	<!-- 삭제 -->
-	<delete id="personDelete" parameterType="com.javaex.vo.PersonVo">
+	<delete id="personDelete" parameterType="PersonVo">
 		<![CDATA[
 			delete from person
 			where person_id = ${personId}
